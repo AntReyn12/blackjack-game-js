@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/* CSS Document */
+
+html,
+body {
+  margin: 0px;
+  background: url("../img/symphony.png") repeat;
+  /* Background image from http://subtlepatterns.com/ */
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  color: DimGray;
+}
+
+h1 {
+  color: tomato;
+}
+
+h2 {
+  color: Salmon;
+}
