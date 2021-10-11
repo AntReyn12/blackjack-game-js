@@ -1,20 +1,46 @@
 @charset "UTF-8";
 /* CSS Document */
 
-html,
 body {
-  margin: 0px;
-  background: url("../img/symphony.png") repeat;
-  /* Background image from http://subtlepatterns.com/ */
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 24px;
   text-align: center;
-  font-family: "Montserrat", sans-serif;
-  color: DimGray;
+  background-image: url("../img/table.jpg");
+  background-size: cover;
+  font-weight: bold;
 }
 
 h1 {
-  color: tomato;
+  color: goldenrod;
 }
 
-h2 {
-  color: Salmon;
+p {
+  color: whitesmoke;
+  font-size: 26px;
+}
+
+#message-el {
+  font-size: 28px;
+  font-style: italic;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  text-align: center;
+  color: #016f32;
+  width: 250px;
+  background-color: goldenrod;
+  font-size: 26px;
+  padding: 10px 25px;
+  font-weight: bold;
+  border: none;
+  border-radius: 7.5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
