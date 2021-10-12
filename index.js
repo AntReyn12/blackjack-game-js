@@ -32,5 +32,7 @@ function renderGame() {
 function newCard() {
   let newCard = 5;
   sum += newCard;
+  totalCards.push(newCard);
+  console.log(totalCards);
   renderGame();
 }
