@@ -1,13 +1,17 @@
 const messageEl = document.querySelector("#message-el");
 const sumEl = document.querySelector("#sum-el");
 const cardsEl = document.querySelector("#cards-el");
-let firstCard = 15;
-let secondCard = 1;
+let firstCard = getRandomCard();
+let secondCard = getRandomCard();
 let totalCards = [firstCard, secondCard];
 let sum = firstCard + secondCard;
 let hasBlackJack = false;
 let isAlive = true;
 let message = "";
+
+function getRandomCard() {
+  return 5;
+}
 
 function startGame() {
   renderGame();
@@ -33,7 +37,7 @@ function renderGame() {
 }
 
 function newCard() {
-  let newCard = 5;
+  let newCard = getRandomCard();
   sum += newCard;
   totalCards.push(newCard);
   renderGame();
