@@ -7,8 +7,6 @@ let hasBlackJack = false;
 let isAlive = false;
 let message = "";
 
-console.log(totalCards);
-
 function getRandomCard() {
   let randomCard = Math.floor(Math.random() * 13) + 1;
   if (randomCard > 10) {
