@@ -26,12 +26,14 @@ function getRandomCard() {
 }
 
 function startGame() {
-  isAlive = true;
-  let firstCard = getRandomCard();
-  let secondCard = getRandomCard();
-  totalCards = [firstCard, secondCard];
-  sum = firstCard + secondCard;
-  renderGame();
+  if (isAlive === false || hasBlackJack === true) {
+    isAlive = true;
+    let firstCard = getRandomCard();
+    let secondCard = getRandomCard();
+    totalCards = [firstCard, secondCard];
+    sum = firstCard + secondCard;
+    renderGame();
+  }
 }
 
 function renderGame() {
