@@ -2,7 +2,6 @@ const messageEl = document.querySelector("#message-el");
 const sumEl = document.querySelector("#sum-el");
 const cardsEl = document.querySelector("#cards-el");
 const playerEl = document.querySelector("#player-el");
-
 let totalCards = [];
 let sum = 0;
 let hasBlackJack = false;
@@ -12,6 +11,7 @@ let player = {
   playerName: "Anthony",
   chips: 145,
 };
+
 playerEl.textContent = player.playerName + ": $" + player.chips;
 
 function getRandomCard() {
