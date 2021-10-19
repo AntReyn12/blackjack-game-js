@@ -2,8 +2,12 @@ const messageEl = document.querySelector("#message-el");
 const sumEl = document.querySelector("#sum-el");
 const cardsEl = document.querySelector("#cards-el");
 const playerEl = document.querySelector("#player-el");
-let totalCards = [];
-let sum = 0;
+const dealerCardsEl = document.querySelector("#dealer-cards");
+const dealerTotalEl = document.querySelector("#dealer-sum");
+let playerCards = [];
+let dealerCards = [];
+let dealerSum = 0;
+let playerSum = 0;
 let hasBlackJack = false;
 let isAlive = false;
 let message = "";
@@ -28,24 +32,30 @@ function getRandomCard() {
 function startGame() {
   if (isAlive === false || hasBlackJack === true) {
     isAlive = true;
-    let firstCard = getRandomCard();
-    let secondCard = getRandomCard();
-    totalCards = [firstCard, secondCard];
-    sum = firstCard + secondCard;
+    let firstPlayerCard = getRandomCard();
+    let secondPlayerCard = getRandomCard();
+    let firstDealerCard = getRandomCard();
+    let secondDealerCard = getRandomCard();
+    dealerCards = [firstDealerCard, secondDealerCard];
+    playerCards = [firstPlayerCard, secondPlayerCard];
+    playerSum = firstPlayerCard + secondPlayerCard;
+    dealerSum = firstDealerCard + secondDealerCard;
     renderGame();
   }
 }
 
 function renderGame() {
-  cardsEl.textContent = "Cards: ";
-  for (i = 0; i < totalCards.length; i++) {
-    cardsEl.textContent += totalCards[i] + " ";
+  dealerCardsEl.textContent = "Dealer hand: ? " + dealerCards[0];
+  cardsEl.textContent = "Player hand: ";
+  for (i = 0; i < playerCards.length; i++) {
+    cardsEl.textContent += playerCards[i] + " ";
   }
-  sumEl.textContent = "Sum: " + sum;
+  sumEl.textContent = "Player total: " + playerSum;
+  dealerTotalEl.textContent = "Dealer total: ?";
 
-  if (sum <= 20) {
+  if (playerSum <= 20) {
     message = "Do you want to draw a new card?";
-  } else if (sum === 21) {
+  } else if (playerSum === 21) {
     message = "You've got blackjack!";
     hasBlackJack = true;
   } else {
@@ -58,8 +68,24 @@ function renderGame() {
 function newCard() {
   if (isAlive === true && hasBlackJack === false) {
     let newCard = getRandomCard();
-    sum += newCard;
-    totalCards.push(newCard);
+    playerSum += newCard;
+    playerCards.push(newCard);
     renderGame();
+  }
+}
+
+function stay() {
+  if (isAlive === true || hasBlackJack === false) {
+    if (playerSum > dealerSum) {
+      message = "You beat the house! You win!";
+      isAlive = false;
+    } else {
+      message = "The house wins!";
+      isAlive = false;
+    }
+    messageEl.textContent = message;
+    dealerCardsEl.textContent =
+      "Dealer hand: " + dealerCards[1] + " " + dealerCards[0];
+    dealerTotalEl.textContent = "Dealer total: " + dealerSum;
   }
 }

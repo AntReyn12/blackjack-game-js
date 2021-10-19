@@ -11,18 +11,32 @@ body {
   font-weight: bold;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.dealer-section,
+.player-section {
+  margin: 50px;
+}
+
 h1 {
   color: goldenrod;
+  font-size: 60px;
 }
 
 p {
   color: whitesmoke;
-  font-size: 26px;
+  font-size: 34px;
 }
 
 #message-el {
-  font-size: 28px;
+  font-size: 34px;
   font-style: italic;
+  margin-bottom: 0;
 }
 .buttons {
   display: flex;
@@ -43,4 +57,20 @@ button {
   border-radius: 7.5px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.new-card {
+  margin: 0 25px;
+}
+
+.stay {
+  margin: 0 25px;
 }
