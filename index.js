@@ -45,7 +45,7 @@ function startGame() {
 }
 
 function renderGame() {
-  dealerCardsEl.textContent = "Dealer hand: ? " + dealerCards[0];
+  dealerCardsEl.textContent = "Dealer hand: ? " + dealerCards[1];
   cardsEl.textContent = "Player hand: ";
   for (i = 0; i < playerCards.length; i++) {
     cardsEl.textContent += playerCards[i] + " ";
@@ -78,6 +78,9 @@ function stay() {
   if (isAlive === true || hasBlackJack === false) {
     if (playerSum > dealerSum) {
       message = "You beat the house! You win!";
+      isAlive = false;
+    } else if (dealerSum === playerSum) {
+      message = "Tie goes to the house.";
       isAlive = false;
     } else {
       message = "The house wins!";
