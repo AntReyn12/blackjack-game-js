@@ -82,7 +82,7 @@ function stay() {
       dealerCardsEl.textContent += dealerCards[i] + " ";
     }
     dealerTotalEl.textContent = "Dealer total: " + dealerSum;
-    if (dealerSum <= 17) {
+    if (dealerSum < 17) {
       getDealerNewCard();
     } else if (playerSum > dealerSum) {
       message = "You beat the house! You win!";
