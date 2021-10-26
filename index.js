@@ -32,6 +32,7 @@ function getRandomCard() {
 function startGame() {
   if (isAlive === false || hasBlackJack === true) {
     isAlive = true;
+    hasBlackJack = false;
     let firstPlayerCard = getRandomCard();
     let secondPlayerCard = getRandomCard();
     let firstDealerCard = getRandomCard();
@@ -45,7 +46,7 @@ function startGame() {
 }
 
 function renderGame() {
-  dealerCardsEl.textContent = "Dealer hand: ? " + dealerCards[1];
+  dealerCardsEl.textContent = "Dealer hand: " + dealerCards[0] + " ?";
   cardsEl.textContent = "Player hand: ";
   for (i = 0; i < playerCards.length; i++) {
     cardsEl.textContent += playerCards[i] + " ";
@@ -76,7 +77,14 @@ function newCard() {
 
 function stay() {
   if (isAlive === true || hasBlackJack === false) {
-    if (playerSum > dealerSum) {
+    dealerCardsEl.textContent = "Dealer hand: ";
+    for (i = 0; i < dealerCards.length; i++) {
+      dealerCardsEl.textContent += dealerCards[i] + " ";
+    }
+    dealerTotalEl.textContent = "Dealer total: " + dealerSum;
+    if (dealerSum <= 17) {
+      getDealerNewCard();
+    } else if (playerSum > dealerSum) {
       message = "You beat the house! You win!";
       isAlive = false;
     } else if (dealerSum === playerSum) {
@@ -87,8 +95,12 @@ function stay() {
       isAlive = false;
     }
     messageEl.textContent = message;
-    dealerCardsEl.textContent =
-      "Dealer hand: " + dealerCards[1] + " " + dealerCards[0];
-    dealerTotalEl.textContent = "Dealer total: " + dealerSum;
   }
+}
+
+function getDealerNewCard() {
+  let newDealerCard = getRandomCard();
+  dealerSum += newDealerCard;
+  dealerCards.push(newDealerCard);
+  stay();
 }
