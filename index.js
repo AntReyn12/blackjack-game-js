@@ -85,13 +85,16 @@ function stay() {
     if (dealerSum < 17) {
       getDealerNewCard();
     } else if (playerSum > dealerSum) {
-      message = "You beat the house! You win!";
+      message = "You beat the house. You win!";
       isAlive = false;
     } else if (dealerSum === playerSum) {
       message = "Tie goes to the house.";
       isAlive = false;
+    } else if (dealerSum > 21) {
+      message = "The house busts. You win!";
+      isAlive = false;
     } else {
-      message = "The house wins!";
+      message = "The house wins.";
       isAlive = false;
     }
     messageEl.textContent = message;
