@@ -76,7 +76,7 @@ function newCard() {
 }
 
 function stay() {
-  if (isAlive === true || hasBlackJack === false) {
+  if (isAlive === true && hasBlackJack === false) {
     dealerCardsEl.textContent = "Dealer hand: ";
     for (i = 0; i < dealerCards.length; i++) {
       dealerCardsEl.textContent += dealerCards[i] + " ";
