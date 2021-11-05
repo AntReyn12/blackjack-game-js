@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 
+/* MOBILE ONLY */
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -9,32 +10,37 @@ body {
   background-image: url("../img/table.jpg");
   background-size: cover;
   font-weight: bold;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .dealer-section,
 .player-section {
-  margin: 50px;
+  width: 100%;
+  margin: 0;
+  padding: 10px 0;
 }
 
 h1 {
   color: goldenrod;
-  font-size: 60px;
+  font-size: 50px;
 }
 
 p {
   color: whitesmoke;
-  font-size: 34px;
+  font-size: 28px;
 }
 
 #message-el {
-  font-size: 34px;
+  font-size: 25px;
   font-style: italic;
   margin-bottom: 0;
 }
@@ -43,34 +49,80 @@ p {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin: 25px;
+  margin-bottom: 45px;
 }
 
 button {
   text-align: center;
   color: #016f32;
-  width: 250px;
+  width: 200px;
   background-color: goldenrod;
-  font-size: 26px;
+  font-size: 20px;
   padding: 10px 25px;
   font-weight: bold;
   border: none;
   border-radius: 7.5px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 0 10px;
+  padding: 10px;
 }
 
 .options {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .new-card {
-  margin: 0 25px;
+  margin: 10px;
 }
 
 .stay {
-  margin: 0 25px;
+  margin: 10px;
+}
+
+#player-el {
+  margin-bottom: 10px;
+}
+
+/*TABLET ONLY */
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 75px;
+  }
+
+  #message-el {
+    font-size: 36px;
+  }
+
+  p {
+    font-size: 40px;
+  }
+
+  button {
+    font-size: 28px;
+    width: 275px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .options {
+    flex-direction: row;
+  }
+
+  .buttons {
+    margin-bottom: 10px;
+  }
+
+  #player-el {
+    margin-top: 10px;
+  }
 }
